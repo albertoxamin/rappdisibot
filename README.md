@@ -20,6 +20,9 @@
 - Start your bot with `python3 bot.py -t TOKEN`.
 (TOKEN is the token you got using botfather)
 
+### Using Docker
+There are 2 enviroment variables: `TELEGRAM` and `REDIS` 
+
 #### Example
 Assuming your token is `123456:drtgfxcdfrgbvdcvfd`
 

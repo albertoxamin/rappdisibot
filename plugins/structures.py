@@ -3,9 +3,10 @@ from pyrogram import InlineKeyboardButton
 from redis import Redis
 import time
 from apscheduler.schedulers.background import BackgroundScheduler
+import os
 
 scheduler = BackgroundScheduler()
-redis = Redis.from_url('redis://localhost:6379/10')
+redis = Redis.from_url(os.environ['REDIS'])
 scheduler.start()
 isBot = False
 brdcst = ""

@@ -1,6 +1,7 @@
 from pyrogram import Client
 import argparse
 from plugins import structures
+import os
 # setto in quale cartella ho i plugins
 plugins = dict(
     root="plugins"
@@ -22,8 +23,11 @@ else:
     accountname = args.account
 
 if not args.token:
-    print("[ERROR] You have to set a token!")
-    exit(1)
+    if os.environ.get('TELEGRAM'):
+        args.token = os.environ['TELEGRAM']
+    else:
+        print("[ERROR] You have to set a token!")
+        exit(1)
 
 
 app = Client(accountname, bot_token=args.token,

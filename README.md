@@ -12,10 +12,35 @@
 - execute `pip3 install -U -r requirements.txt`
 - Done.
 ### Step 3
-- Insert your bot token in `bot.py`. More precisely:
-`app = Client("HERE",plugins=plugins)`
+- Get your api KEY with `botfather` (telegram side)
 (If you don't know how to get bot API KEY just google "How to create bot with botfather telegram")
 ### Step 4
-- Start your bot with `python3 bot.py`.
+- Edit `plugins/structures.py` and set your id in the `admin=["ID"]`. This let you use `/helper @username` command.
 ### Step 5
-- Edit `plugins/structures.py` and set your id. This let you use `/helper @username` command.
+- Start your bot with `python3 bot.py -t TOKEN`.
+(TOKEN is the token you got using botfather)
+
+#### Example
+Assuming your token is `123456:drtgfxcdfrgbvdcvfd`
+
+`python3 bot.py -t 123456:drtgfxcdfrgbvdcvfd`
+
+##### Using screen (background running)
+`screen -dmS mybot python3 bot.py -t 123456:drtgfxcdfrgbvdcvfd`
+
+and close the instance with
+`screen -X -S mybot quit`
+## Commands
+### Admin commands
+
+- `/helper @username` or `/helper id`. Set an user as a helper (Rappresentante)
+- `/broadcast message`. Send a message to all the users.
+- and Helper commands.
+
+__An admin can't be an user.__
+
+### Helper commands
+- `/count`. How many users started the bot.
+
+## To do
+* [Multi language using this method or something equivalent](https://phrase.com/blog/posts/translate-python-gnu-gettext/)
